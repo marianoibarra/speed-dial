@@ -33,199 +33,203 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "speedDial",
+          "name": "Speed dial"
+        }
+      ]
+    },
     "keybindings": [
       {
-        "command": "speed-dial.save-0",
-        "key": "ctrl+numpad_multiply ctrl+numpad0"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad0",
+        "args": "0"
       },
       {
-        "command": "speed-dial.save-1",
-        "key": "ctrl+numpad_multiply ctrl+numpad1"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad1",
+        "args": "1"
       },
       {
-        "command": "speed-dial.save-2",
-        "key": "ctrl+numpad_multiply ctrl+numpad2"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad2",
+        "args": "2"
       },
       {
-        "command": "speed-dial.save-3",
-        "key": "ctrl+numpad_multiply ctrl+numpad3"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad3",
+        "args": "3"
       },
       {
-        "command": "speed-dial.save-4",
-        "key": "ctrl+numpad_multiply ctrl+numpad4"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad4",
+        "args": "4"
       },
       {
-        "command": "speed-dial.save-5",
-        "key": "ctrl+numpad_multiply ctrl+numpad5"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad5",
+        "args": "5"
       },
       {
-        "command": "speed-dial.save-6",
-        "key": "ctrl+numpad_multiply ctrl+numpad6"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad6",
+        "args": "6"
       },
       {
-        "command": "speed-dial.save-7",
-        "key": "ctrl+numpad_multiply ctrl+numpad7"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad7",
+        "args": "7"
       },
       {
-        "command": "speed-dial.save-8",
-        "key": "ctrl+numpad_multiply ctrl+numpad8"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad8",
+        "args": "8"
       },
       {
-        "command": "speed-dial.save-9",
-        "key": "ctrl+numpad_multiply ctrl+numpad9"
+        "command": "speed-dial.save",
+        "key": "ctrl+numpad_multiply ctrl+numpad9",
+        "args": "9"
       },
       {
-        "command": "speed-dial.open-0",
-        "key": "ctrl+numpad0"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad0",
+        "args": "0"
       },
       {
-        "command": "speed-dial.open-1",
-        "key": "ctrl+numpad1"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad1",
+        "args": "1"
       },
       {
-        "command": "speed-dial.open-2",
-        "key": "ctrl+numpad2"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad2",
+        "args": "2"
       },
       {
-        "command": "speed-dial.open-3",
-        "key": "ctrl+numpad3"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad3",
+        "args": "3"
       },
       {
-        "command": "speed-dial.open-4",
-        "key": "ctrl+numpad4"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad4",
+        "args": "4"
       },
       {
-        "command": "speed-dial.open-5",
-        "key": "ctrl+numpad5"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad5",
+        "args": "5"
       },
       {
-        "command": "speed-dial.open-6",
-        "key": "ctrl+numpad6"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad6",
+        "args": "6"
       },
       {
-        "command": "speed-dial.open-7",
-        "key": "ctrl+numpad7"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad7",
+        "args": "7"
       },
       {
-        "command": "speed-dial.open-8",
-        "key": "ctrl+numpad8"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad8",
+        "args": "8"
       },
       {
-        "command": "speed-dial.open-9",
-        "key": "ctrl+numpad9"
+        "command": "speed-dial.open",
+        "key": "ctrl+numpad9",
+        "args": "9"
       },
       {
-        "command": "speed-dial.clear",
+        "command": "speed-dial.removeAll",
         "key": "ctrl+numpad_multiply ctrl+numpad_divide"
       }
     ],
     "commands": [
       {
-        "command": "speed-dial.save-0",
-        "title": "Save bookmark to Speed Dial 0",
+        "command": "speed-dial.save",
+        "title": "Save bookmark",
         "category": "Workspace"
       },
       {
-        "command": "speed-dial.save-1",
-        "title": "Save bookmark to Speed Dial 1",
+        "command": "speed-dial.saveFromMenu",
+        "title": "Save current file to bookmark",
+        "category": "Workspace",
+        "icon": "$(file-symlink-file)"
+      },
+      {
+        "command": "speed-dial.open",
+        "title": "Open bookmark",
         "category": "Workspace"
       },
       {
-        "command": "speed-dial.save-2",
-        "title": "Save bookmark to Speed Dial 2",
-        "category": "Workspace"
+        "command": "speed-dial.refresh",
+        "title": "Refresh Speed Dial",
+        "category": "Workspace",
+        "icon": "$(refresh)"
       },
       {
-        "command": "speed-dial.save-3",
-        "title": "Save bookmark to Speed Dial 3",
-        "category": "Workspace"
+        "command": "speed-dial.edit",
+        "title": "Edit bookmark",
+        "category": "Workspace",
+        "icon": "$(edit)"
       },
       {
-        "command": "speed-dial.save-4",
-        "title": "Save bookmark to Speed Dial 4",
-        "category": "Workspace"
+        "command": "speed-dial.remove",
+        "title": "Remove bookmark",
+        "category": "Workspace",
+        "icon": "$(trash)"
       },
       {
-        "command": "speed-dial.save-5",
-        "title": "Save bookmark to Speed Dial 5",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.save-6",
-        "title": "Save bookmark to Speed Dial 6",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.save-7",
-        "title": "Save bookmark to Speed Dial 7",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.save-8",
-        "title": "Save bookmark to Speed Dial 8",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.save-9",
-        "title": "Save bookmark to Speed Dial 9",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-0",
-        "title": "Open bookmark in Speed Dial 0",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-1",
-        "title": "Open bookmark in Speed Dial 1",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-2",
-        "title": "Open bookmark in Speed Dial 2",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-3",
-        "title": "Open bookmark in Speed Dial 3",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-4",
-        "title": "Open bookmark in Speed Dial 4",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-5",
-        "title": "Open bookmark in Speed Dial 5",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-6",
-        "title": "Open bookmark in Speed Dial 6",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-7",
-        "title": "Open bookmark in Speed Dial 7",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-8",
-        "title": "Open bookmark in Speed Dial 8",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.open-9",
-        "title": "Open bookmark in Speed Dial 9",
-        "category": "Workspace"
-      },
-      {
-        "command": "speed-dial.clear",
-        "title": "Clear Speed Dial",
+        "command": "speed-dial.removeAll",
+        "title": "Clear all Speed Dial",
         "category": "Workspace"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+          {
+              "command": "speed-dial.refresh",
+              "when": "view == speedDial",
+              "group": "navigation"
+          }
+      ],
+      "view/item/context": [
+        {
+					"command": "speed-dial.edit",
+					"when": "view == speedDial && viewItem == bookmark",
+					"group": "inline"
+				},
+        {
+					"command": "speed-dial.remove",
+					"when": "view == speedDial && viewItem == bookmark",
+          "group": "inline"
+				},
+        {
+					"command": "speed-dial.open",
+					"when": "view == speedDial && viewItem == bookmark"
+				},
+        {
+					"command": "speed-dial.edit",
+					"when": "view == speedDial && viewItem == bookmark"
+				},
+        {
+					"command": "speed-dial.remove",
+					"when": "view == speedDial && viewItem == bookmark"
+				},
+        {
+					"command": "speed-dial.saveFromMenu",
+					"when": "view == speedDial && viewItem == empty"
+				},
+        {
+					"command": "speed-dial.saveFromMenu",
+					"when": "view == speedDial && viewItem == empty",
+          "group": "inline"
+				}
+      ]
+  }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
