@@ -1,60 +1,59 @@
 import * as vscode from 'vscode';
+import { Store } from './store';
 
-export class SpeedDialTreeProvider implements vscode.TreeDataProvider<Entry> {
-  constructor(private context: vscode.ExtensionContext) {}
+export class TreeProvider implements vscode.TreeDataProvider<Bookmark> {
+  constructor(private store: Store) {
+    this.store.onDidUpdate(() => this.refresh());
+  }
 
-  private _onDidChangeTreeData: vscode.EventEmitter<Entry | undefined | null | void> = new vscode.EventEmitter<Entry | undefined | null | void>();
-  readonly onDidChangeTreeData: vscode.Event<Entry | undefined | null | void> = this._onDidChangeTreeData.event;
-
-  elements: Entry[] = [];
+  private _onDidChangeTreeData: vscode.EventEmitter<Bookmark | undefined | null | void> = new vscode.EventEmitter<Bookmark | undefined | null | void>();
+  readonly onDidChangeTreeData: vscode.Event<Bookmark | undefined | null | void> = this._onDidChangeTreeData.event;
 
   refresh(): void {
     this._onDidChangeTreeData.fire();
   }
   
-  getTreeItem(element: Entry): vscode.TreeItem | Thenable<vscode.TreeItem> {
-    if(element.type === vscode.FileType.Unknown) {
-      const emptyTreeItem = new vscode.TreeItem('', vscode.TreeItemCollapsibleState.None);
-      emptyTreeItem.description = 'Empty bookmark';
-      emptyTreeItem.contextValue = 'empty';
-      emptyTreeItem.label = { label: `${numbers[element.index]} `, highlights: [] };
-      return emptyTreeItem;
+  getTreeItem(bookmark: Bookmark): vscode.TreeItem | Thenable<vscode.TreeItem> {
+    if(bookmark.uri) {
+      return new BookmarkTreeItem(bookmark);
     }
-
-    const treeItem = new vscode.TreeItem(element.uri, vscode.TreeItemCollapsibleState.None);
-    treeItem.label = { label: `${numbers[element.index]}  ${element.uri.path.split('/').at(-1)}`, highlights: [] };
-    treeItem.description = vscode.workspace.asRelativePath(element.uri.path).split('/').slice(0, -1).join('/');
-    treeItem.command = { title: 'Open' + element.index, command: 'speed-dial.open', arguments: [element.index] };
-    treeItem.contextValue = 'bookmark';
-
-    return treeItem;
+    return new EmptyTreeItem(bookmark);
   }
 
-  getChildren(element?: Entry): vscode.ProviderResult<Entry[]> {
-    if(!element) {
-      this.elements = [];
-      for(let i = 0; i < 10; i++) {
-        const filepath: string = this.context.workspaceState.get(`bookmark-${i}`) as string ?? '';
-        this.elements[i] = {
-          uri: vscode.Uri.file(filepath),
-          index: i,
-          type: filepath ? vscode.FileType.File : vscode.FileType.Unknown
-        };
-    
-      }
-      return Promise.resolve(this.elements);
-    }
+  getChildren(): vscode.ProviderResult<Bookmark[]> {
+    const bookmarks: Bookmark[] = new Array(9).fill(undefined).map((_, index) => ({uri: this.store.get(++index), index}));
+    return Promise.resolve(bookmarks);
   }
 
-  getParent(element: Entry): vscode.ProviderResult<Entry> {
+  getParent(element: Bookmark): vscode.ProviderResult<Bookmark> {
     return null;
   }
 }
 
-export interface Entry {
-	uri: vscode.Uri;
-	type: vscode.FileType;
+class BookmarkTreeItem extends vscode.TreeItem {
+  constructor({index, uri}: Bookmark) {
+    super(uri!, vscode.TreeItemCollapsibleState.None);
+
+    this.label = `${numbers[index]}  ${uri?.path.split('/').at(-1)}`;
+    this.description = vscode.workspace.asRelativePath(uri!).split('/').slice(0, -1).join('/');
+    this.command = { title: 'Open' + index, command: 'speed-dial.open', arguments: [index] };
+    this.contextValue = 'bookmark';
+  }
+}
+
+class EmptyTreeItem extends vscode.TreeItem {
+  constructor({index}: Bookmark) {
+    super('', vscode.TreeItemCollapsibleState.None);
+
+    this.label = `${numbers[index]} `;
+    this.description = 'Empty bookmark';
+    this.contextValue = 'empty';
+  }
+}
+
+export interface Bookmark {
   index: number;
+	uri?: vscode.Uri;
 }
 
 const numbers = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣'];

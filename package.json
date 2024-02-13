@@ -44,11 +44,6 @@
     "keybindings": [
       {
         "command": "speed-dial.save",
-        "key": "ctrl+numpad_multiply ctrl+numpad0",
-        "args": "0"
-      },
-      {
-        "command": "speed-dial.save",
         "key": "ctrl+numpad_multiply ctrl+numpad1",
         "args": "1"
       },
@@ -91,11 +86,6 @@
         "command": "speed-dial.save",
         "key": "ctrl+numpad_multiply ctrl+numpad9",
         "args": "9"
-      },
-      {
-        "command": "speed-dial.open",
-        "key": "ctrl+numpad0",
-        "args": "0"
       },
       {
         "command": "speed-dial.open",

@@ -1,95 +1,78 @@
-import { window, workspace } from "vscode";
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-import { Entry, SpeedDialTreeProvider } from "./tree-provider";
+import { window, workspace } from "vscode";
+import { Bookmark } from "./tree-provider";
+import { Store } from './store';
 
 export class SpeedDial {
-  private treeView: vscode.TreeView<Entry>;
-  private treeDataProvider: SpeedDialTreeProvider;
 
-  constructor(private context: vscode.ExtensionContext) {
-    this.treeDataProvider = new SpeedDialTreeProvider(context);
-    this.treeView = vscode.window.createTreeView('speedDial', {treeDataProvider: this.treeDataProvider});
-    vscode.commands.registerCommand('speed-dial.refresh', () => this.treeDataProvider.refresh());
-    context.subscriptions.push(this.treeView);
+  constructor(private readonly store: Store) {}
 
-    this.bindOnChangeActiveTextEditor();
-  }
-
-  private bindOnChangeActiveTextEditor(): void {
-    window.onDidChangeActiveTextEditor((textEditor?: vscode.TextEditor) => {
-      if(!textEditor) { return; }
-      for(const elem of this.treeDataProvider.elements) {
-        if(elem.uri.path === vscode.Uri.file(textEditor.document.fileName).path) {
-          this.treeView.reveal(elem);
-          break;
-        };
-      }
-    });
-  } 
-
-  private reveal(filepath: string, index: SpeedDialIndex) {
-    const node: Entry = {index: Number(index), uri: vscode.Uri.file(filepath), type: vscode.FileType.File};
-    this.treeView.reveal(node);
-  }
-
-  public save(index: SpeedDialIndex): void {
+  public save(index: number): void {
     const editor = window.activeTextEditor;
-
     if (!editor) {
       window.showInformationMessage('Make sure editor is active');
-      return undefined;
+      return;
     }
 
-    const file: string = editor.document.fileName;
-
-    if(SpeedDial.fileExists(file)) {
-      this.context.workspaceState.update(`bookmark-${index}`, file);
-      window.showInformationMessage(`Save in Speed dial ${index}`, file.split('\\').at(-1)!);
-      vscode.commands.executeCommand('speed-dial.refresh');
+    const uri: vscode.Uri = editor.document.uri;
+    if(uri.scheme !== 'file') {
+      window.showInformationMessage("Make sure it's a local file");
+      return;
+    }
+    if(SpeedDial.fileExists(uri)) {
+      this.store.set(index, uri);
     }
   }
 
-  public open(index: SpeedDialIndex): void {
-    const file: string = this.context.workspaceState.get(`bookmark-${index}`) || '';
-    if(!file) {
+  public open(index: number): void {
+    const uri = this.store.get(index);
+    if(!uri) {
       window.showWarningMessage(`Nothing saved in Speed Dial ${index}`);
       return;
     }
-    if(!SpeedDial.fileExists(file)) {
-      window.showErrorMessage(`${file.split('\\').at(-1)!} was not found (ERR: no matching file found).`);
+
+    if(!SpeedDial.fileExists(uri)) {
+      window.showErrorMessage(`${this.getFileName(uri)} was not found (ERR: no matching file found).`);
       return;
     }
-    workspace.openTextDocument(file).then(document => window.showTextDocument(document));
-    this.reveal(file, index);
+    workspace.openTextDocument(uri.path).then(document => window.showTextDocument(document));
   }
 
-  public edit({index, ...args}: Entry): void {
-    window.showInputBox({value: this.context.workspaceState.get(`bookmark-${index}`), valueSelection: [999, 999]}).then(value => {
-      if(!value) { return; }
-      if(!SpeedDial.fileExists(value)) {
-        window.showErrorMessage(`${value.split('\\').at(-1)!} was not found (ERR: no matching file found).`);
-        return this.edit({index, ...args});
+  public edit(bookmark: Bookmark): void {
+    const uri = this.store.get(bookmark.index);
+    if(!uri) { return; }
+    const value = this.store.toRelativePath(uri);
+    window.showInputBox({value, valueSelection: [999, 999]}).then(inputValue => {
+      if(!inputValue) { return; }
+
+      const uri = this.store.toAbsolutePath(inputValue);
+      if(!uri) { return; }
+      
+      if(!SpeedDial.fileExists(uri)) {
+        window.showErrorMessage(`${this.getFileName(uri)} was not found (ERR: no matching file found).`);
+        return this.edit(bookmark);
       }
-      this.context.workspaceState.update(`bookmark-${index}`, value);
-      vscode.commands.executeCommand('speed-dial.refresh');
+      this.store.set(bookmark.index, inputValue);
     });
   }
 
-  public remove(bookmark: Entry) {
-    this.context.workspaceState.update(`bookmark-${bookmark.index}`, undefined);
-    vscode.commands.executeCommand('speed-dial.refresh');
+  public remove(index: number) {
+    this.store.remove(index);
   }
 
   public removeAll(): void {
-    this.context.workspaceState.keys().forEach(key => this.context.workspaceState.update(key, undefined));
-    window.showInformationMessage(`Clear all!`);
-    vscode.commands.executeCommand('speed-dial.refresh');
+    this.store.clear();
+    window.showInformationMessage(`Cleared all!`);
   }
 
-  static fileExists(file: string): boolean {
-    return fs.existsSync(file);
+  private getFileName(path: vscode.Uri | string): string {
+    path = typeof path === 'string' ? path : path.fsPath;
+    return path.split('\\').at(-1) ?? '';
+  }
+
+  static fileExists(uri: vscode.Uri): boolean {
+    const response = fs.existsSync(uri.fsPath);
+    return response;
   }
 }
-
-type SpeedDialIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
