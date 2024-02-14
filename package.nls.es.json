@@ -1,0 +1,9 @@
+{
+  "command.save": "Guardar marcador",
+  "command.saveFromMenu": "Guardar archivo actual cómo marcador",
+  "command.refresh": "Actualizar Speed Dial",
+  "command.open": "Abrir marcador",
+  "command.edit": "Editar marcador",
+  "command.remove": "Eliminar marcador",
+  "command.clear": "Eliminar todos los marcadores"
+}

@@ -14,9 +14,11 @@ export function activate(context: vscode.ExtensionContext) {
 	const save = vscode.commands.registerCommand('speed-dial.save', index => speedDial.save(Number(index)));
 	const saveFromMenu = vscode.commands.registerCommand('speed-dial.saveFromMenu', ({index}) => speedDial.save(Number(index)));
 	const open = vscode.commands.registerCommand('speed-dial.open', index => speedDial.open(Number(index)));
+	const openFromMenu = vscode.commands.registerCommand('speed-dial.openFromMenu', ({index}) => speedDial.open(Number(index)));
+	const openFromCommandPallete = vscode.commands.registerCommand('speed-dial.openFromCommandPallete', () => speedDial.openFromCommandPallete());
 	const edit = vscode.commands.registerCommand('speed-dial.edit', bookmark => speedDial.edit(bookmark));
 	const remove = vscode.commands.registerCommand('speed-dial.remove', ({index}) => speedDial.remove(Number(index)));
-	const removeAll = vscode.commands.registerCommand('speed-dial.removeAll',  () => speedDial.removeAll());
+	const clear = vscode.commands.registerCommand('speed-dial.clear',  () => speedDial.clear());
 
 	vscode.window.onDidChangeActiveTextEditor((textEditor?: vscode.TextEditor) => {
 		if(!textEditor) { return; }
@@ -29,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(
-		save, saveFromMenu, open, edit, remove, removeAll, treeView, refresh
+		save, saveFromMenu, open, openFromMenu, openFromCommandPallete, edit, remove, clear, treeView, refresh
 	);
 }
 

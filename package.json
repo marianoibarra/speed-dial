@@ -2,34 +2,26 @@
   "name": "speed-dial",
   "displayName": "Speed Dial",
   "description": "Jump quickly to your favorites files",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Mariano Ibarra",
+    "email": "marianoibarratesta@outlook.com",
+    "url": "https://marianoibarra.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/marianoibarra/speed-dial.git"
+  },
   "engines": {
     "vscode": "^1.86.0"
   },
+  "l10n": "./l10n",
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:speed-dial.save-0",
-    "onCommand:speed-dial.save-1",
-    "onCommand:speed-dial.save-2",
-    "onCommand:speed-dial.save-3",
-    "onCommand:speed-dial.save-4",
-    "onCommand:speed-dial.save-5",
-    "onCommand:speed-dial.save-6",
-    "onCommand:speed-dial.save-7",
-    "onCommand:speed-dial.save-8",
-    "onCommand:speed-dial.save-9",
-    "onCommand:speed-dial.open-0",
-    "onCommand:speed-dial.open-1",
-    "onCommand:speed-dial.open-2",
-    "onCommand:speed-dial.open-3",
-    "onCommand:speed-dial.open-4",
-    "onCommand:speed-dial.open-5",
-    "onCommand:speed-dial.open-6",
-    "onCommand:speed-dial.open-7",
-    "onCommand:speed-dial.open-8",
-    "onCommand:speed-dial.open-9"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -133,93 +125,139 @@
         "args": "9"
       },
       {
-        "command": "speed-dial.removeAll",
+        "command": "speed-dial.clear",
         "key": "ctrl+numpad_multiply ctrl+numpad_divide"
       }
     ],
     "commands": [
       {
         "command": "speed-dial.save",
-        "title": "Save bookmark",
-        "category": "Workspace"
+        "title": "%command.save%"
       },
       {
         "command": "speed-dial.saveFromMenu",
-        "title": "Save current file to bookmark",
-        "category": "Workspace",
+        "title": "%command.saveFromMenu%",
         "icon": "$(file-symlink-file)"
       },
       {
         "command": "speed-dial.open",
-        "title": "Open bookmark",
-        "category": "Workspace"
+        "title": "%command.open%"
+      },
+      {
+        "command": "speed-dial.openFromMenu",
+        "title": "%command.open%"
       },
       {
         "command": "speed-dial.refresh",
-        "title": "Refresh Speed Dial",
-        "category": "Workspace",
+        "title": "%command.refresh%",
+        "category": "Speed Dial",
         "icon": "$(refresh)"
       },
       {
         "command": "speed-dial.edit",
-        "title": "Edit bookmark",
-        "category": "Workspace",
+        "title": "%command.edit%",
         "icon": "$(edit)"
       },
       {
         "command": "speed-dial.remove",
-        "title": "Remove bookmark",
-        "category": "Workspace",
+        "title": "%command.remove%",
         "icon": "$(trash)"
       },
       {
-        "command": "speed-dial.removeAll",
-        "title": "Clear all Speed Dial",
-        "category": "Workspace"
+        "command": "speed-dial.clear",
+        "title": "%command.clear%",
+        "category": "Speed Dial"
+      },
+      {
+        "command": "speed-dial.openFromCommandPallete",
+        "title": "%command.open%",
+        "category": "Speed Dial"
       }
     ],
     "menus": {
+      "commandPalette": [
+        {
+          "command": "speed-dial.openFromCommandPallete",
+          "title": "%command.open%"
+        },
+        {
+          "command": "speed-dial.save",
+          "title": "%command.save%",
+          "when": "false"
+        },
+        {
+          "command": "speed-dial.saveFromMenu",
+          "title": "%command.saveFromMenu%",
+          "icon": "$(file-symlink-file)",
+          "when": "false"
+        },
+        {
+          "command": "speed-dial.open",
+          "title": "%command.open%",
+          "when": "false"
+        },
+        {
+          "command": "speed-dial.openFromMenu",
+          "title": "%command.open%",
+          "when": "false"
+        },
+        {
+          "command": "speed-dial.edit",
+          "title": "%command.edit%",
+          "icon": "$(edit)",
+          "when": "false"
+        },
+        {
+          "command": "speed-dial.remove",
+          "title": "%command.remove%",
+          "icon": "$(trash)",
+          "when": "false"
+        }
+      ],
       "view/title": [
-          {
-              "command": "speed-dial.refresh",
-              "when": "view == speedDial",
-              "group": "navigation"
-          }
+        {
+          "command": "speed-dial.refresh",
+          "when": "view == speedDial",
+          "group": "navigation"
+        }
       ],
       "view/item/context": [
         {
-					"command": "speed-dial.edit",
-					"when": "view == speedDial && viewItem == bookmark",
-					"group": "inline"
-				},
-        {
-					"command": "speed-dial.remove",
-					"when": "view == speedDial && viewItem == bookmark",
+          "command": "speed-dial.edit",
+          "when": "view == speedDial && viewItem == bookmark",
           "group": "inline"
-				},
+        },
         {
-					"command": "speed-dial.open",
-					"when": "view == speedDial && viewItem == bookmark"
-				},
-        {
-					"command": "speed-dial.edit",
-					"when": "view == speedDial && viewItem == bookmark"
-				},
-        {
-					"command": "speed-dial.remove",
-					"when": "view == speedDial && viewItem == bookmark"
-				},
-        {
-					"command": "speed-dial.saveFromMenu",
-					"when": "view == speedDial && viewItem == empty"
-				},
-        {
-					"command": "speed-dial.saveFromMenu",
-					"when": "view == speedDial && viewItem == empty",
+          "command": "speed-dial.remove",
+          "when": "view == speedDial && viewItem == bookmark",
           "group": "inline"
-				}
+        },
+        {
+          "command": "speed-dial.openFromMenu",
+          "when": "view == speedDial && viewItem == bookmark",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "speed-dial.edit",
+          "when": "view == speedDial && viewItem == bookmark",
+          "group": "5_copy@2"
+        },
+        {
+          "command": "speed-dial.remove",
+          "when": "view == speedDial && viewItem == bookmark",
+          "group": "5_copy@3"
+        },
+        {
+          "command": "speed-dial.saveFromMenu",
+          "when": "view == speedDial && viewItem == empty"
+        },
+        {
+          "command": "speed-dial.saveFromMenu",
+          "when": "view == speedDial && viewItem == empty",
+          "group": "inline"
+        }
       ]
-  }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -230,14 +268,18 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
+    "@vscode/l10n-dev": "^0.0.33",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@vscode/l10n": "^0.0.18"
   }
 }

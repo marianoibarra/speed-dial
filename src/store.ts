@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import * as fs from 'fs';
 
 export class Store {
   private _store = new Map<number, string>();
@@ -65,7 +64,7 @@ export class Store {
     };
     const workspaceFolder = vscode.workspace.workspaceFolders?.at(0)?.uri;
     if(!workspaceFolder) {
-      vscode.window.showErrorMessage('There is no open workspace');
+      vscode.window.showErrorMessage(vscode.l10n.t('There is no open workspace'));
       return;
     }
     return vscode.Uri.joinPath(workspaceFolder, path);

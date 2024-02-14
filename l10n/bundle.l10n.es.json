@@ -1,0 +1,11 @@
+{
+  "Empty bookmark": "Marcador vacío",
+  "Speed Dial cleared successfully.": "Se han eliminado todos los marcadores de Speed Dial correctamente.",
+  "{fileName} was not found (ERR: no matching file found).": "{fileName} no fue encontrado. (ERR: no matching file found).",
+  "Edit bookmark at Speed Dial {index}": "Editar marcador en Speed Dial {index}",
+  "You must enter a valid relative path to a file.": "Debes ingresar un ruta relativa al archivo válida.",
+  "Nothing saved in Speed Dial {index}": "No hay marcador guardado en Speed Dial {index}",
+  "Make sure it's a local file.": "Asegurate que sea un archivo local.",
+  "Make sure editor is active.": "Asegurate que haya un archivo abierto y el editor esté activo.",
+  "There is no open workspace": "No hay un workspace abierto."
+}
