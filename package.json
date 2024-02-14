@@ -4,6 +4,7 @@
   "description": "Jump quickly to your favorites files",
   "version": "0.1.0",
   "license": "MIT",
+  "icon": "./resources/logo.png",
   "author": {
     "name": "Mariano Ibarra",
     "email": "marianoibarratesta@outlook.com",
