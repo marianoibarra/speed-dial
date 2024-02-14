@@ -36,7 +36,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.6.0"
+    "vscode": "^1.75.0"
   },
   "l10n": "./l10n",
   "categories": [
@@ -333,7 +333,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.86.0",
+    "@types/vscode": "^1.75.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "@vscode/l10n-dev": "^0.0.33",
