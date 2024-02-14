@@ -2,6 +2,14 @@
 
 All notable changes to `Speed Dial` extension will be documented in this file.
 
+## [0.1.1] - 2024-02-14
+
+### Changed
+
+- Package declaration
+- Refactor and update keybindings
+
+
 ## [0.1.0] - 2024-02-14
 
 ### Added
