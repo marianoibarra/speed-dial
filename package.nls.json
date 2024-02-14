@@ -1,6 +1,5 @@
 {
-  "command.save": "Save bookmark",
-  "command.saveFromMenu": "Save current file to bookmark",
+  "command.save": "Save current file to bookmark",
   "command.refresh": "Refresh Speed Dial",
   "command.open": "Open bookmark",
   "command.edit": "Edir bookmark",

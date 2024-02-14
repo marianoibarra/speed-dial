@@ -1,7 +1,19 @@
 {
   "name": "speed-dial",
   "displayName": "Speed Dial",
-  "description": "Jump quickly to your favorites files",
+  "description": "Jump quickly to your favorites files with simple keyboard shortcuts.",
+  "keywords": [
+    "speed",
+    "dial",
+    "speed dial",
+    "favorite",
+    "favorites",
+    "bookmark",
+    "bookmarks",
+    "quick",
+    "quickly"
+  ],
+  "publisher": "MarianoIbarra",
   "version": "0.1.0",
   "license": "MIT",
   "icon": "./resources/logo.png",
@@ -10,15 +22,26 @@
     "email": "marianoibarratesta@outlook.com",
     "url": "https://marianoibarra.com/"
   },
+  "preview": true,
   "repository": {
     "type": "git",
     "url": "www.github.com/marianoibarra/speed-dial.git"
   },
+  "bugs": {
+    "url": "https://github.com/marianoibarra/speed-dial/issues"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+        "supported": true
+    }
+  },
   "engines": {
-    "vscode": "^1.86.0"
+    "vscode": "^1.6.0"
   },
   "l10n": "./l10n",
   "categories": [
+    "Keymaps",
+    "Visualization",
     "Other"
   ],
   "activationEvents": [
@@ -36,117 +59,171 @@
     },
     "keybindings": [
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad1",
-        "args": "1"
+        "args": {"index": 1}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad2",
-        "args": "2"
+        "args": {"index": 2}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad3",
-        "args": "3"
+        "args": {"index": 3}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad4",
-        "args": "4"
+        "args": {"index": 4}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad5",
-        "args": "5"
+        "args": {"index": 5}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad6",
-        "args": "6"
+        "args": {"index": 6}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad7",
-        "args": "7"
+        "args": {"index": 7}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad8",
-        "args": "8"
+        "args": {"index": 8}
       },
       {
-        "command": "speed-dial.save",
+        "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad9",
-        "args": "9"
+        "args": {"index": 9}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad1",
-        "args": "1"
+        "args": {"index": 1}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad2",
-        "args": "2"
+        "args": {"index": 2}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad3",
-        "args": "3"
+        "args": {"index": 3}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad4",
-        "args": "4"
+        "args": {"index": 4}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad5",
-        "args": "5"
+        "args": {"index": 5}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad6",
-        "args": "6"
+        "args": {"index": 6}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad7",
-        "args": "7"
+        "args": {"index": 7}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad8",
-        "args": "8"
+        "args": {"index": 8}
       },
       {
-        "command": "speed-dial.open",
+        "command": "speed-dial.openKB",
         "key": "ctrl+numpad9",
-        "args": "9"
+        "args": {"index": 9}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad1",
+        "args": {"index": 1}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad2",
+        "args": {"index": 2}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad3",
+        "args": {"index": 3}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad4",
+        "args": {"index": 4}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad5",
+        "args": {"index": 5}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad6",
+        "args": {"index": 6}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad7",
+        "args": {"index": 7}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad8",
+        "args": {"index": 8}
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "key": "ctrl+numpad_divide ctrl+numpad9",
+        "args": {"index": 9}
       },
       {
         "command": "speed-dial.clear",
-        "key": "ctrl+numpad_multiply ctrl+numpad_divide"
+        "key": "ctrl+numpad_divide ctrl+numpad_divide"
       }
     ],
     "commands": [
       {
         "command": "speed-dial.save",
-        "title": "%command.save%"
-      },
-      {
-        "command": "speed-dial.saveFromMenu",
-        "title": "%command.saveFromMenu%",
-        "icon": "$(file-symlink-file)"
+        "title": "%command.save%",
+        "icon": "$(new-file)"
       },
       {
         "command": "speed-dial.open",
         "title": "%command.open%"
       },
       {
-        "command": "speed-dial.openFromMenu",
+        "command": "speed-dial.remove",
+        "title": "%command.remove%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "speed-dial.saveKB",
+        "title": "%command.save%"
+      },
+      {
+        "command": "speed-dial.openKB",
         "title": "%command.open%"
+      },
+      {
+        "command": "speed-dial.removeKB",
+        "title": "%command.remove%"
       },
       {
         "command": "speed-dial.refresh",
@@ -159,18 +236,14 @@
         "title": "%command.edit%",
         "icon": "$(edit)"
       },
-      {
-        "command": "speed-dial.remove",
-        "title": "%command.remove%",
-        "icon": "$(trash)"
-      },
+      
       {
         "command": "speed-dial.clear",
         "title": "%command.clear%",
         "category": "Speed Dial"
       },
       {
-        "command": "speed-dial.openFromCommandPallete",
+        "command": "speed-dial.openCP",
         "title": "%command.open%",
         "category": "Speed Dial"
       }
@@ -178,7 +251,7 @@
     "menus": {
       "commandPalette": [
         {
-          "command": "speed-dial.openFromCommandPallete",
+          "command": "speed-dial.openCP",
           "title": "%command.open%"
         },
         {
@@ -187,18 +260,7 @@
           "when": "false"
         },
         {
-          "command": "speed-dial.saveFromMenu",
-          "title": "%command.saveFromMenu%",
-          "icon": "$(file-symlink-file)",
-          "when": "false"
-        },
-        {
           "command": "speed-dial.open",
-          "title": "%command.open%",
-          "when": "false"
-        },
-        {
-          "command": "speed-dial.openFromMenu",
           "title": "%command.open%",
           "when": "false"
         },
@@ -234,7 +296,7 @@
           "group": "inline"
         },
         {
-          "command": "speed-dial.openFromMenu",
+          "command": "speed-dial.open",
           "when": "view == speedDial && viewItem == bookmark",
           "group": "1_actions@1"
         },
@@ -249,11 +311,11 @@
           "group": "5_copy@3"
         },
         {
-          "command": "speed-dial.saveFromMenu",
+          "command": "speed-dial.save",
           "when": "view == speedDial && viewItem == empty"
         },
         {
-          "command": "speed-dial.saveFromMenu",
+          "command": "speed-dial.save",
           "when": "view == speedDial && viewItem == empty",
           "group": "inline"
         }

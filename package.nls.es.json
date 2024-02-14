@@ -1,6 +1,5 @@
 {
-  "command.save": "Guardar marcador",
-  "command.saveFromMenu": "Guardar archivo actual cómo marcador",
+  "command.save":"Guardar archivo activo cómo marcador",
   "command.refresh": "Actualizar Speed Dial",
   "command.open": "Abrir marcador",
   "command.edit": "Editar marcador",

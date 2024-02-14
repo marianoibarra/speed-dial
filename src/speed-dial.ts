@@ -79,7 +79,7 @@ export class SpeedDial {
   }
   
 
-  public openFromCommandPallete(): void {
+  public openCP(): void {
     const quickPick = window.createQuickPick();
     quickPick.items = new Array(9)
       .fill(undefined)

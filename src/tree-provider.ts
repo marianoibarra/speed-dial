@@ -36,7 +36,7 @@ class BookmarkTreeItem extends vscode.TreeItem {
 
     this.label = `${numberEmoji[index]}  ${uri?.path.split('/').at(-1)}`;
     this.description = vscode.workspace.asRelativePath(uri!).split('/').slice(0, -1).join('/');
-    this.command = { title: 'Open' + index, command: 'speed-dial.open', arguments: [index] };
+    this.command = { title: 'Open' + index, command: 'speed-dial.open', arguments: [{index}] };
     this.contextValue = 'bookmark';
   }
 }

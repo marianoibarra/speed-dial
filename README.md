@@ -10,10 +10,10 @@ Tired of searching for those critical files amid heaps of code? Speed Dial allow
 
 ### How to use
 The keybindings to all commands are
-- Save bookmark: `CTRL + numpad[+]` `CTRL + numpad[1..9]`
+- Save bookmark: `CTRL + numpad[*]` `CTRL + numpad[1..9]`
 - Open bookmark: `CTRL + numpad[1..9]`
-- Remove bookmark: `CTRL + numpad[-]` `CTRL + numpad[1..9]`
-- Clear all bookmarks: `CTRL + numpad[-]` `CTRL + numpad[*]`
+- Remove bookmark: `CTRL + numpad[/]` `CTRL + numpad[1..9]`
+- Clear all bookmarks: `CTRL + numpad[/]` `CTRL + numpad[/]`
 
-For example, to save the current file in Speed Dial 3, type `CTRL + numpad[+]` `CTRL + numpad[3]` and then, to open it type `CTRL + numpad[3]`
+For example, to save the current file in Speed Dial 3, type `CTRL + numpad[*]` `CTRL + numpad[3]` and then, to open it type `CTRL + numpad[3]`
 
