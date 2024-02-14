@@ -14,7 +14,7 @@
     "quickly"
   ],
   "publisher": "MarianoIbarra",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "icon": "./resources/logo.png",
   "author": {
@@ -32,7 +32,7 @@
   },
   "capabilities": {
     "untrustedWorkspaces": {
-        "supported": true
+      "supported": true
     }
   },
   "engines": {
@@ -61,137 +61,191 @@
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad1",
-        "args": {"index": 1}
+        "args": {
+          "index": 1
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad2",
-        "args": {"index": 2}
+        "args": {
+          "index": 2
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad3",
-        "args": {"index": 3}
+        "args": {
+          "index": 3
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad4",
-        "args": {"index": 4}
+        "args": {
+          "index": 4
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad5",
-        "args": {"index": 5}
+        "args": {
+          "index": 5
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad6",
-        "args": {"index": 6}
+        "args": {
+          "index": 6
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad7",
-        "args": {"index": 7}
+        "args": {
+          "index": 7
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad8",
-        "args": {"index": 8}
+        "args": {
+          "index": 8
+        }
       },
       {
         "command": "speed-dial.saveKB",
         "key": "ctrl+numpad_multiply ctrl+numpad9",
-        "args": {"index": 9}
+        "args": {
+          "index": 9
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad1",
-        "args": {"index": 1}
+        "args": {
+          "index": 1
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad2",
-        "args": {"index": 2}
+        "args": {
+          "index": 2
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad3",
-        "args": {"index": 3}
+        "args": {
+          "index": 3
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad4",
-        "args": {"index": 4}
+        "args": {
+          "index": 4
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad5",
-        "args": {"index": 5}
+        "args": {
+          "index": 5
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad6",
-        "args": {"index": 6}
+        "args": {
+          "index": 6
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad7",
-        "args": {"index": 7}
+        "args": {
+          "index": 7
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad8",
-        "args": {"index": 8}
+        "args": {
+          "index": 8
+        }
       },
       {
         "command": "speed-dial.openKB",
         "key": "ctrl+numpad9",
-        "args": {"index": 9}
+        "args": {
+          "index": 9
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad1",
-        "args": {"index": 1}
+        "args": {
+          "index": 1
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad2",
-        "args": {"index": 2}
+        "args": {
+          "index": 2
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad3",
-        "args": {"index": 3}
+        "args": {
+          "index": 3
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad4",
-        "args": {"index": 4}
+        "args": {
+          "index": 4
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad5",
-        "args": {"index": 5}
+        "args": {
+          "index": 5
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad6",
-        "args": {"index": 6}
+        "args": {
+          "index": 6
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad7",
-        "args": {"index": 7}
+        "args": {
+          "index": 7
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad8",
-        "args": {"index": 8}
+        "args": {
+          "index": 8
+        }
       },
       {
         "command": "speed-dial.removeKB",
         "key": "ctrl+numpad_divide ctrl+numpad9",
-        "args": {"index": 9}
+        "args": {
+          "index": 9
+        }
       },
       {
         "command": "speed-dial.clear",
@@ -236,7 +290,6 @@
         "title": "%command.edit%",
         "icon": "$(edit)"
       },
-      
       {
         "command": "speed-dial.clear",
         "title": "%command.clear%",
